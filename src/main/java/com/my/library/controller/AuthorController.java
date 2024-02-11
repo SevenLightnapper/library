@@ -68,7 +68,6 @@ public class AuthorController {
    * </ul>
    */
   @GetMapping("/{id}")
-  @PreAuthorize(value = "hasRole('ROLE_ADMIN')")
   public ResponseEntity<Author> getAuthorById(@PathVariable Long id) {
     return authorService.getAuthorById(id)
         .map(ResponseEntity::ok)
@@ -98,6 +97,7 @@ public class AuthorController {
    */
   @DeleteMapping("/{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
+  @PreAuthorize(value = "hasRole('ROLE_ADMIN')")
   public void deleteGenre(@PathVariable Long id) {
     authorService.deleteAuthor(id);
   }
