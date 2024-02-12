@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-title>Вход</mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="login()">
+      <mat-form-field appearance="fill">
+        <mat-label>Имя пользователя</mat-label>
+        <input matInput [(ngModel)]="model.username" name="username" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Пароль</mat-label>
+        <input matInput [(ngModel)]="model.password" name="password" type="password" required>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Войти</button>
+    </form>
+  </mat-card-content>
+</mat-card>
