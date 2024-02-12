@@ -1,0 +1,22 @@
+<div class="search-results-container" *ngIf="searchResults && searchResults.length > 0; else noResults">
+  <h1>Результаты поиска</h1>
+  <div class="books-grid">
+    <div *ngFor="let book of searchResults" class="book-card">
+      <div class="book-info">
+        <div class="card-content">
+          <h2 (click)="viewBookDetails(book.id)">{{ book.title }}</h2>
+          <p><b>Автор:</b> {{ book.author.name }}</p>
+          <div class="summary"><b>Описание:</b> {{ book.summary | slice:0:150 }}...</div>
+        </div>
+      </div>
+      <div class="buttons">
+        <button (click)="editBook(book)">Редактировать</button>
+        <button class="delete-btn" (click)="deleteBook(book.id!)">Удалить</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noResults>
+  <p>Книги не найдены. Пожалуйста, попробуйте изменить критерии поиска.</p>
+</ng-template>
