@@ -39,28 +39,30 @@
 <code>git clone https://github.com/SevenLightnapper/library.git </code>
 
 Зайдите в проект локально:
-<code>cd path/to/your-project </code>
+<code>cd path/to/your-project</code>
 
 Соберите проект:
-- maven-wrapper сборка
+- maven-wrapper сборка:
   <code>./mvnw clean install </code>
-- maven сборка
+- maven сборка:
   <code>mvn clean install </code>
 
 ## Запуск проекта
 Создайте базу данных, например library, в pgAdmin (PostgreSQL).
 И подключитесь к базе данных в своей среде разработки.
 - В файле application.yml можно изменить название базы данных в строке:
+
   <code>url: jdbc:postgresql://localhost:5432/your_database</code>
 - Также можно изменить имя пользователя (владельца базы данных) и его пароль:
   
-  <code>username: your_username \
-  password: your_password</code>
+  <code>username: your_username</code>
+
+  <code>password: your_password</code>
 
 В консоли переходите в корневой каталог проекта и запускаете сборку:
-- maven-wrapper сборка
+- maven-wrapper сборка:
   <code>./mvnw spring-boot:run </code>
-- maven сборка
+- maven сборка:
   <code>mvn spring-boot:run </code>
 
 ## Использование
