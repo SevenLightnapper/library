@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-title>Регистрация</mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="register()">
+      <mat-form-field appearance="fill">
+        <mat-label>Имя пользователя</mat-label>
+        <input matInput [(ngModel)]="model.username" name="username" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="model.email" name="email" type="email" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Пароль</mat-label>
+        <input matInput [(ngModel)]="model.password" name="password" type="password" required>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Зарегистрироваться</button>
+    </form>
+  </mat-card-content>
+</mat-card>
