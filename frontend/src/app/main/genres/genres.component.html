@@ -1,0 +1,15 @@
+<div class="genre-container">
+  <h1>Список жанров</h1>
+  <button class="add-genre-btn" (click)="addGenre()">Добавить жанр</button>
+  <div class="genre-list">
+    <div *ngFor="let genre of genres" class="genre-item">
+      <div class="genre-content">
+        <h2 (click)="viewGenreDetails(genre.id!)">{{ genre.name }}</h2>
+      </div>
+      <div class="buttons">
+        <button (click)="editGenre(genre)">Редактировать</button>
+        <button class="delete-genre-btn" (click)="deleteGenre(genre.id)">Удалить</button>
+      </div>
+    </div>
+  </div>
+</div>
