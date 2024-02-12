@@ -1,0 +1,14 @@
+.home-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.home-container h1 {
+  color: #333;
+}
+
+.home-container .welcome-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 50px;
+}
