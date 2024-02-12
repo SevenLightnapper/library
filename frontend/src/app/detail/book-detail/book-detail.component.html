@@ -1,0 +1,23 @@
+<div *ngIf="book" class="book-details">
+  <a [routerLink]="['/home']">Вернуться на начальную страницу</a>
+  <h2>{{ book.title }}</h2>
+  <div><b>Название:</b> {{ book.title}}</div>
+  <div class="author-info" (click)="viewAuthorDetails(book.author.id!)">
+    <b>Автор:</b> {{ book.author.name }}
+  </div>
+  <div><b>ISBN:</b> {{ book.isbn }}</div>
+  <div class="genre-info" (click)="viewGenreDetails(book.genre.id!)">
+    <b>Жанр:</b> {{ book.genre.name }}
+  </div>
+  <div><b>Год издания:</b> {{ book.year }}</div>
+  <div><b>Количество страниц:</b> {{ book.numberOfPages }}</div>
+  <div><b>Описание:</b> {{ book.summary }}</div>
+  <div class="buttons">
+    <button (click)="editBook(book)">Редактировать</button>
+    <button class="delete-btn" (click)="deleteBook(book.id!)">Удалить</button>
+  </div>
+  <h2>Комментарии</h2>
+  <div class="comments">
+    <app-comments [bookId]="book.id"></app-comments>
+  </div>
+</div>
