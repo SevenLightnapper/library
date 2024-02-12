@@ -13,7 +13,7 @@
 желающих цифровизировать управление своей коллекцией книг, а также предоставлять быстрый и удобный доступ к информации о книгах.
 
 ## Технологии
-<b>Backend</b>
+### Backend
 - Java 17
 - Spring Boot (version 3.2.2)
 - PostgreSQL (driver 42.6.0)
@@ -22,7 +22,7 @@
 - Lombok
 - JWT (JSON Web Token)
 
-<b>Frontend</b>
+### Frontend
 - Angular CLI 17.1.3
 - Angular Material
 - Node.js 20.11.0
@@ -30,49 +30,38 @@
 - HTML5
 - CSS3
 
+## Об авторе
+- **GitHub**: [Seven Lightnapper](https://github.com/SevenLightnapper)
+- **Специализация**: Java Middle+ Developer
+
 ## Установка и настройка
 Скопируйте проект с github'а:
-<code>
-git clone https://github.com/SevenLightnapper/library.git
-</code>
+<code>git clone https://github.com/SevenLightnapper/library.git </code>
 
 Зайдите в проект локально:
-<code>
-cd path/to/your-project
-</code>
+<code>cd path/to/your-project </code>
 
 Соберите проект:
 - maven-wrapper сборка
-  <code>
-  ./mvnw clean install
-  </code>
+  <code>./mvnw clean install </code>
 - maven сборка
-  <code>
-  mvn clean install
-  </code>
+  <code>mvn clean install </code>
 
 ## Запуск проекта
 Создайте базу данных, например library, в pgAdmin (PostgreSQL).
 И подключитесь к базе данных в своей среде разработки.
 - В файле application.yml можно изменить название базы данных в строке:
-  <code>
-  url: jdbc:postgresql://localhost:5432/your_database
-  </code>
+  <code>url: jdbc:postgresql://localhost:5432/your_database</code>
 - Также можно изменить имя пользователя (владельца базы данных) и его пароль:
-  <code>
-  username: your_username
-  password: your_password
-  </code>
+  
+  <code>username: your_username \
+  password: your_password</code>
 
 В консоли переходите в корневой каталог проекта и запускаете сборку:
 - maven-wrapper сборка
-  <code>
-  ./mvnw spring-boot:run
-  </code>
+  <code>./mvnw spring-boot:run </code>
 - maven сборка
-  <code>
-  mvn spring-boot:run
-  </code>
+  <code>mvn spring-boot:run </code>
 
 ## Использование
 ### API Управление книгами <code>/books</code>
@@ -106,3 +95,4 @@ cd path/to/your-project
 - [ ] Добавить описание методов аутентификации.
 - [ ] Добавить описание взаимодействия/настроек приложения для связи между бэкендом и фронендом.
 - [ ] Добавить примеры запросов HTTP или CURL для каждого эндпоинта API.
+- [ ] Возможно расширить раздел "Об авторе".
