@@ -1,0 +1,60 @@
+<h2 mat-dialog-title>Добавление книги</h2>
+<div mat-dialog-content>
+  <form class="add-book-form" [formGroup]="addBookForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Название</mat-label>
+      <input matInput formControlName="title">
+      <mat-error *ngIf="addBookForm.get('title')!.hasError('required')">
+        Название книги обязательно к заполнению
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Автор</mat-label>
+      <mat-select formControlName="authorId">
+        <mat-option *ngFor="let author of allAuthors" [value]="author.id">
+          {{ author.name }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="addBookForm.get('authorId')!.hasError('required')">
+        Автор книги обязателен к заполнению
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>ISBN</mat-label>
+      <input matInput formControlName="isbn">
+      <mat-error *ngIf="addBookForm.get('isbn')!.hasError('required')">
+        ISBN книги обязателен к заполнению
+      </mat-error>
+      <mat-error *ngIf="addBookForm.get('isbn')!.hasError('isbnInvalid')">
+        ISBN заполнен некорректно
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Жанр</mat-label>
+      <mat-select formControlName="genreId">
+        <mat-option *ngFor="let genre of allGenres" [value]="genre.id">
+          {{ genre.name }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="addBookForm.get('genreId')!.hasError('required')">
+        Жанр книги обязателен к заполнению
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Год</mat-label>
+      <input matInput formControlName="year">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Количество страниц</mat-label>
+      <input matInput formControlName="numberOfPages">
+    </mat-form-field>
+    <mat-form-field class="textarea-field" appearance="fill">
+      <mat-label>Описание</mat-label>
+      <textarea matInput formControlName="summary"></textarea>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button class="cancel-button" (click)="onCancel()">Отмена</button>
+  <button mat-button class="save-button" [disabled]="addBookForm.pristine || !addBookForm.valid" (click)="onSubmit()">Добавить</button>
+</div>
