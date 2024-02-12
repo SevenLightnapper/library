@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Добавление автора</h2>
+<div mat-dialog-content>
+  <form class="add-author-form" [formGroup]="addAuthorForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Имя автора</mat-label>
+      <input matInput formControlName="name">
+      <mat-error *ngIf="addAuthorForm.get('name')!.hasError('required')">
+        Имя автора обязательно к заполнению
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="textarea-field">
+      <mat-label>Об авторе</mat-label>
+      <textarea matInput formControlName="bio"></textarea>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button class="cancel-button" (click)="onCancel()">Отмена</button>
+  <button mat-button class="save-button" [disabled]="addAuthorForm.pristine || !addAuthorForm.valid" (click)="onSubmit()">Добавить</button>
+</div>
