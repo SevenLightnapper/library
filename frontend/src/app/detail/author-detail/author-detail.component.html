@@ -1,0 +1,20 @@
+<div *ngIf="author" class="author-details">
+  <a [routerLink]="['/home']">Вернуться на начальную страницу</a>
+  <h2>{{ author.name }}</h2>
+  <div><b>Об авторе:</b> {{ author.bio }}</div>
+  <div class="buttons">
+    <button (click)="editAuthor(author)">Редактировать</button>
+    <button class="delete-btn" (click)="deleteAuthor(author.id!)">Удалить</button>
+  </div>
+  <h2>Книги:</h2>
+  <div *ngIf="books !== null">
+    <div *ngFor="let book of books">
+      <mat-card>
+        <mat-card-content>
+          <div class="title-info" (click)="viewBookDetails(book.id!)">{{ book.title }}</div>
+          <p>{{ book.summary }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
