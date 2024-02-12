@@ -1,0 +1,19 @@
+<div class="books-container">
+  <h1>Список книг</h1>
+  <button class="add-book-btn" (click)="addBook()">Добавить книгу</button>
+  <div class="book-list">
+    <div *ngFor="let book of books" class="book-item">
+      <div class="book-content">
+        <h2 (click)="viewBookDetails(book.id)">{{ book.title }}</h2>
+        <p><b>Автор:</b> {{ book.author.name }}</p>
+        <p><b>Жанр:</b> {{ book.genre.name }}</p>
+        <p><b>Описание:</b> {{ book.summary }}</p>
+      </div>
+      <div class="buttons">
+        <button (click)="editBook(book)">Редактировать</button>
+        <button class="delete-btn" (click)="deleteBook(book.id!)">Удалить</button>
+      </div>
+    </div>
+  </div>
+
+</div>
