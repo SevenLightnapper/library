@@ -1,0 +1,60 @@
+<h2 mat-dialog-title>Редактирование книги</h2>
+<div mat-dialog-content>
+  <form class="edit-book-form" [formGroup]="editBookForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Название</mat-label>
+      <input matInput formControlName="title">
+      <mat-error *ngIf="editBookForm.get('title')!.hasError('required')">
+        Название книги обязательно к заполнению
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Автор</mat-label>
+      <mat-select formControlName="author" [compareWith]="compareAuthors">
+        <mat-option *ngFor="let author of allAuthors" [value]="author">
+          {{ author.name }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="editBookForm.get('author')!.hasError('required')">
+        Автор книги обязателен к заполнению
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>ISBN</mat-label>
+      <input matInput formControlName="isbn">
+      <mat-error *ngIf="editBookForm.get('isbn')!.hasError('required')">
+        ISBN книги обязателен к заполнению
+      </mat-error>
+      <mat-error *ngIf="editBookForm.get('isbn')!.hasError('isbnInvalid')">
+        ISBN заполнен некорректно
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Жанр</mat-label>
+      <mat-select formControlName="genre" [compareWith]="compareGenres">
+        <mat-option *ngFor="let genre of allGenres" [value]="genre">
+          {{ genre.name }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="editBookForm.get('genre')!.hasError('required')">
+        Жанр книги обязателен к заполнению
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Год</mat-label>
+      <input matInput formControlName="year">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Количество страниц</mat-label>
+      <input matInput formControlName="numberOfPages">
+    </mat-form-field>
+    <mat-form-field class="textarea-field" appearance="fill">
+      <mat-label>Описание</mat-label>
+      <textarea matInput formControlName="summary"></textarea>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button class="cancel-button" (click)="onCancel()">Отмена</button>
+  <button mat-button class="save-button" [disabled]="editBookForm.pristine || !editBookForm.valid" (click)="onSubmit()">Сохранить</button>
+</div>
