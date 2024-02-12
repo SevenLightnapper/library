@@ -1,0 +1,44 @@
+<div class="search-container">
+
+  <div class="simple-search">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Поиск книг...</mat-label>
+      <input matInput [(ngModel)]="searchQuery" placeholder="Введите запрос">
+    </mat-form-field>
+    <button class="smp-btn" mat-raised-button color="primary" (click)="performSimpleSearch()">Поиск</button>
+  </div>
+
+  <button class="adv-btn" mat-raised-button color="primary" (click)="toggleAdvancedSearch()">Расширенный поиск</button>
+
+  <div *ngIf="showAdvancedSearch" class="advanced-search">
+    <mat-form-field appearance="outline">
+      <mat-label>Название</mat-label>
+      <input matInput [(ngModel)]="title">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Автор</mat-label>
+      <input matInput [(ngModel)]="authorName">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>ISBN</mat-label>
+      <input matInput [(ngModel)]="isbn">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Жанр</mat-label>
+      <input matInput [(ngModel)]="genreName">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Год издания</mat-label>
+      <input matInput [(ngModel)]="year">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Мин. кол-во страниц</mat-label>
+      <input matInput [(ngModel)]="minPages">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Макс. кол-во страниц</mat-label>
+      <input matInput [(ngModel)]="maxPages">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="performAdvancedSearch()">Поиск</button>
+  </div>
+</div>
