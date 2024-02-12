@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Добавление жанра</h2>
+<div mat-dialog-content>
+  <form class="add-genre-form" [formGroup]="addGenreForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Название</mat-label>
+      <input matInput formControlName="name">
+      <mat-error *ngIf="addGenreForm.get('name')!.hasError('required')">
+        название жанра обязательно к заполнению
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button class="cancel-button" (click)="onCancel()">Отмена</button>
+  <button mat-button class="save-button" [disabled]="addGenreForm.pristine || !addGenreForm.valid" (click)="onSubmit()">Добавить</button>
+</div>
