@@ -1,0 +1,12 @@
+<mat-card *ngIf="user" class="profile-card">
+  <mat-card-header>
+    <div mat-card-avatar class="profile-header-image"></div>
+    <mat-card-title>Профиль пользователя: {{ user.username }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Роли:</strong> {{ user.roles.join(', ') }}</p>
+    <p><strong>Дата создания аккаунта:</strong> {{ user.createdAt | date:'medium' }}</p>
+  </mat-card-content>
+</mat-card>

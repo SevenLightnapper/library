@@ -1,0 +1,11 @@
+.profile-card {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.profile-header-image {
+  /*background-image: url('/src/assets/welcome_img.png');*/
+  background-size: cover;
+}
+
+/* Дополнительные стили, если нужно */
