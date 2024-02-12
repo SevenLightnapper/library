@@ -1,0 +1,70 @@
+/* Стилизация формы */
+.edit-genre-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+/* Стилизация заголовков */
+.edit-genre-form h2 {
+  text-align: center;
+  color: #333;
+}
+
+/* Стилизация полей ввода */
+mat-form-field {
+  width: calc(50% - 10px);
+}
+
+mat-form-field.textarea-field {
+  width: calc(100% - 20px);
+}
+
+textarea.mat-input-element {
+  min-height: 56px;
+}
+
+mat-select {
+  width: 100%;
+}
+
+/* Стилизация кнопок */
+button.mat-button {
+  margin-right: 8px;
+}
+
+.cancel-button {
+  background-color: #f44336;
+  color: whitesmoke;
+}
+
+.cancel-button:hover {
+  background-color: #d32f2f;
+}
+
+.save-button {
+  background-color: #4caf50;
+  color: whitesmoke;
+}
+
+.save-button:hover {
+  background-color: #357a38;
+}
+
+.save-button:disabled {
+  background-color: #9e9e9e;
+  color: whitesmoke;
+  cursor: not-allowed;
+}
+
+.save-button:disabled:hover {
+  cursor: default;
+}
+
+/* Стилизация сообщений об ошибках */
+mat-error {
+  color: red;
+}
