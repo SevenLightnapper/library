@@ -1,0 +1,16 @@
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Добавить комментарий</mat-label>
+    <textarea matInput [(ngModel)]="newCommentText" placeholder="Введите ваш комментарий"></textarea>
+  </mat-form-field>
+  <button class="add-comment-btn" mat-raised-button (click)="addComment()" [disabled]="!newCommentText.trim()">Отправить</button>
+</div>
+
+<div *ngFor="let comment of comments">
+  <mat-card>
+    <mat-card-content>
+      {{ comment.text }}
+      <div class="comment-date">{{ comment.createdAt | date: 'medium' }}</div>
+    </mat-card-content>
+  </mat-card>
+</div>
