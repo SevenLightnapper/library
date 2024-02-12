@@ -1,0 +1,25 @@
+<header class="header">
+  <div class="hamburger-menu" (click)="toggleMenu()" [class.open]="isMenuOpen">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
+  <div class="header-controls">
+    <div class="auth-buttons">
+      <button mat-raised-button color="primary" (click)="signin()">Войти</button>
+      <button mat-raised-button color="primary" (click)="signup()">Зарегистрироваться</button>
+    </div>
+    <app-search-books></app-search-books>
+  </div>
+</header>
+
+<nav class="nav-menu" *ngIf="isMenuOpen">
+  <!-- Навигационные ссылки -->
+  <p><a routerLink="home" (click)="toggleMenu()">Домой</a></p>
+  <p><a routerLink="books" (click)="toggleMenu()">Книги</a></p>
+  <p><a routerLink="authors" (click)="toggleMenu()">Авторы</a></p>
+  <p><a routerLink="genres" (click)="toggleMenu()">Жанры</a></p>
+  <!-- другие ссылки -->
+</nav>
+
+<router-outlet></router-outlet>
