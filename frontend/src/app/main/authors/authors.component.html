@@ -1,0 +1,17 @@
+<div class="authors-container">
+  <h1>Список авторов</h1>
+  <button class="add-author-btn" (click)="addAuthor()">Добавить автора</button>
+  <div class="author-list">
+    <div *ngFor="let author of authors" class="author-item">
+      <div class="author-content">
+        <h2 (click)="viewAuthorDetails(author.id)">{{ author.name }}</h2>
+        <p><b>Об авторе:</b> {{ author.bio }}</p>
+      </div>
+      <div class="buttons">
+        <button (click)="editAuthor(author)">Редактировать</button>
+        <button class="delete-author-btn" (click)="deleteAuthor(author.id!)">Удалить</button>
+      </div>
+    </div>
+  </div>
+
+</div>
