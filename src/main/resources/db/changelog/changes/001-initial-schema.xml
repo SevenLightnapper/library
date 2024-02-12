@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                           http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- ChangeSet for creating the 'genres' table -->
+    <changeSet id="add-genres-table-001" author="SevenLightnapper">
+        <!-- Change Date: 2024-02-04 -->
+        <createTable tableName="genres">
+            <column name="genre_id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- ChangeSet for creating the 'authors' table -->
+    <changeSet id="add-author-table-002" author="SevenLightnapper">
+        <!-- Change Date: 2024-02-05 -->
+        <createTable tableName="authors">
+            <column name="author_id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- ChangeSet for creating the 'books' table -->
+    <changeSet id="add-books-table-003" author="SevenLightnapper">
+        <!-- Change Date: 2024-02-04 -->
+        <createTable tableName="books">
+            <column name="book_id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="title" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <!-- Change Date: 2024-02-05 -->
+            <column name="author_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="isbn" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="summary" type="TEXT"/>
+            <column name="year" type="INTEGER"/>
+            <column name="number_of_pages" type="INTEGER"/>
+            <column name="genre_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="books" baseColumnNames="genre_id"
+                                 constraintName="fk_book_genre" referencedTableName="genres"
+                                 referencedColumnNames="genre_id"/>
+        <!-- Change Date: 2024-02-05 -->
+        <addForeignKeyConstraint baseTableName="books" baseColumnNames="author_id" constraintName="fk_book_author"
+                                 referencedTableName="authors"
+                                 referencedColumnNames="author_id"
+                                 onDelete="CASCADE"/>
+    </changeSet>
+
+</databaseChangeLog>

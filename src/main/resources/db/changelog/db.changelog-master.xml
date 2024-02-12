@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                           http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- Change Date: 2024-02-05 -->
+    <include relativeToChangelogFile="true" file="changes/001-initial-schema.xml"/>
+    <!-- Change Date: 2024-02-05 -->
+    <include relativeToChangelogFile="true" file="changes/002-add-bio-to-author.xml"/>
+    <!-- Change Date: 2024-02-10 -->
+    <include relativeToChangelogFile="true" file="changes/003-add-user-role.xml"/>
+    <!-- Change Date: 2024-02-12 -->
+    <include relativeToChangelogFile="true" file="changes/004-add-comment.xml"/>
+
+</databaseChangeLog>
